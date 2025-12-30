@@ -8,84 +8,303 @@
 
     <title>Jacopo Scrinzi - Eredi</title>
 
-    <!-- Bootstrap core CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    >
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+      :root {
+        --primary: #0a66c2;
+        --primary-dark: #004182;
+        --text: #191919;
+        --text-muted: #666666;
+        --bg: #f4f2ee;
+        --card-bg: #ffffff;
+        --border: #e0e0e0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: var(--text);
+        line-height: 1.5;
+        background: var(--bg);
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      a:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Profile Card */
+      .profile-card {
+        background: var(--card-bg);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 0 1px var(--border);
+        margin-top: 20px;
+      }
+
+      .banner {
+        height: 200px;
+        background-image: url('files/skyline.png');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .profile-header {
+        position: relative;
+        padding: 0 24px 24px;
+      }
+
+      .profile-photo {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 4px solid var(--card-bg);
+        background-image: url('files/me.jpeg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        margin-top: -70px;
+      }
+
+      .profile-info {
+        margin-top: 16px;
+      }
+
+      .profile-info h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .profile-info .title {
+        font-size: 1rem;
+        color: var(--text);
+        margin-top: 4px;
+      }
+
+      .profile-info .location {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-top: 8px;
+      }
+
+      /* Content Sections */
+      .content-card {
+        background: var(--card-bg);
+        border-radius: 8px;
+        box-shadow: 0 0 0 1px var(--border);
+        margin-top: 8px;
+        padding: 24px;
+      }
+
+      .content-card h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: var(--text);
+      }
+
+      p {
+        margin-bottom: 12px;
+        color: var(--text);
+        font-size: 0.9375rem;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .text-muted {
+        color: var(--text-muted);
+      }
+
+      /* CV Link */
+      .cv-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--primary);
+        font-weight: 500;
+      }
+
+      .cv-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Social Links */
+      .social-links {
+        display: flex;
+        gap: 12px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        background: var(--card-bg);
+        border: 1px solid var(--primary);
+        border-radius: 20px;
+        color: var(--primary);
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 24px;
+        margin-top: 8px;
+      }
+
+      footer p {
+        color: var(--text-muted);
+        font-size: 0.8125rem;
+      }
+
+      footer a {
+        color: var(--text-muted);
+      }
+
+      footer a:hover {
+        color: var(--primary);
+      }
+
+      /* Responsive */
+      @media (max-width: 640px) {
+        .container {
+          margin: 0;
+        }
+
+        .profile-card {
+          margin-top: 0;
+          border-radius: 0;
+        }
+
+        .banner {
+          height: 120px;
+        }
+
+        .profile-photo {
+          width: 100px;
+          height: 100px;
+          margin-top: -50px;
+        }
+
+        .profile-header {
+          padding: 0 16px 20px;
+        }
+
+        .profile-info h1 {
+          font-size: 1.25rem;
+        }
+
+        .content-card {
+          border-radius: 0;
+          margin-top: 4px;
+          padding: 20px 16px;
+        }
+
+        .social-links {
+          flex-direction: column;
+        }
+
+        .social-link {
+          justify-content: center;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Eredi</a>
-      </nav>
-    </header>
-
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col col-8" style="padding-top: 20px;">
-          <h2 id="about">About me</h2>
-          <p>Hi, I'm Jacopo <span class="text-muted">(YA ko po)</span> - @eredi93 on the Internet.</p>
-          <p>I'm a Security Engineer at Intercom.</p>
-          <p>
-            I'm a pragmatic software engineer with nearly a decade of expertise in designing, developing, and securing applications running in AWS.
-            I spent the past six years securing Intercom Ruby on Rails monolith, collaborating with teams on risk mitigation and developing infrastructure & application security controls.
-          </p>
-          <p>Thanks for stopping by 😄</p>
+      <div class="profile-card">
+        <div class="banner"></div>
+        <div class="profile-header">
+          <div class="profile-photo"></div>
+          <div class="profile-info">
+            <h1>Jacopo Scrinzi</h1>
+            <p class="title">Security Engineer at Intercom</p>
+            <p class="location">Chicago, Illinois, United States</p>
+          </div>
         </div>
       </div>
 
-      <div class="row justify-content-center">
-        <div class="col col-8">
-          <h2 id="cv">My CV</h2>
-          <p><a href="files/CV.pdf">Download here</a></p>
+      <div class="content-card">
+        <h2>About</h2>
+        <p>Hi, I'm Jacopo <span class="text-muted">(YA ko po)</span> - @eredi93 on the Internet.</p>
+        <p>I'm a Staff Engineer with 10+ years of experience building and securing large-scale systems on AWS. I use AI-assisted workflows as a default part of how I build.</p>
+        <p>At Intercom, I've spent 7+ years securing core product platforms, driving architectural decisions, influencing security strategy across application and infrastructure layers, and enabling teams to scale safely.</p>
+        <p>I'm deeply invested in technical leadership and mentorship, helping engineers navigate complex tradeoffs, raising the bar on security and engineering quality, and building systems that earn customer trust.</p>
+        <p>Thanks for stopping by 😄</p>
+      </div>
+
+      <div class="content-card">
+        <h2>CV</h2>
+        <a href="files/CV.pdf" class="cv-link">
+          <i class="fas fa-file-pdf"></i>
+          <span>Download my CV</span>
+        </a>
+      </div>
+
+      <div class="content-card">
+        <h2>Contact</h2>
+        <p>Email me at my last name dot first name at gmail dot com.</p>
+        <p>Find me on most platforms @eredi93</p>
+        <div class="social-links">
+          <a href="https://github.com/eredi93" class="social-link">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="https://x.com/eredi93" class="social-link">
+            <i class="fab fa-x-twitter"></i>
+            <span>X</span>
+          </a>
+          <a href="https://www.linkedin.com/in/jacoposcrinzi" class="social-link">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
         </div>
       </div>
 
-      <div class="row justify-content-center">
-        <div class="col col-8" style="padding-bottom: 60px;">
-          <h2 id="contacts">Contact me!</h2>
-          <p>Email me at my last name dot first name at gmail dot com.</p>
-          <p>I don't really use social media but you can find me on most platforms @eredi93</p>
-          <p>
-            <a href="https://github.com/eredi93">Github<a/>
-            <a href="https://twitter.com/eredi93">Twitter<a/>
-            <a href="https://www.linkedin.com/in/jacoposcrinzi">LinkedIn</a>
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-    <footer class="footer fixed-bottom">
-      <div class="container text-center">
-        <p class="text-muted credit" style="color:#fff">
-        Built with ❤️ by me using Github Pages
-        | <a href="https://github.com/eredi93/eredi93.github.io">source</a>
+      <footer>
+        <p>
+          Built with ❤️ using GitHub Pages
+          · <a href="https://github.com/eredi93/eredi93.github.io">source</a>
         </p>
-      </div>
-    </footer>
-
-    <script type="text/javascript">
-      // add google analytics
-    </script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
+      </footer>
+    </div>
   </body>
 </html>
